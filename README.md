@@ -1,6 +1,7 @@
 # Using bitcore-lib with Peercoin
 
-This repository shows how to use bitcore-lib for Peercoin development in javascript.  
+This repository shows how to use [bitcore-lib](https://github.com/bitpay/bitcore/tree/master/packages/bitcore-lib) for Peercoin development in javascript.  
+
 [patch-package](https://www.npmjs.com/package/patch-package) is being used to patch the upstream bitcore-lib and allow it to handle Peercoin specifics.  
 In order to use `patch-package` you must drop the `patches` directory into you work directory and edit the `package.json` to include `"postinstall": "patch-package"` in the `"scripts"` section.  
 See the attached `package.json` file for the example.
