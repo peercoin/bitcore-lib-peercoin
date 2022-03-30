@@ -8,6 +8,16 @@ See the attached `package.json` file for the example.
 
 Using patch-package simplifies the process of adapting upstream bitcore-lib to work with Peercoin as all developers must worry about is the local bitcore-lib.*.patch.
 
+Upon running "npm install" you will notice message like in the log:
+```
+"Applying patches...
+bitcore-lib@8.25.25 ✔
+```
+
+Which means that bitcore-lib has been patched upon installation.
+Sweet.
+
+
 ## Older version
 
 This older patch may be useful if you are handling older, v=1 transactions.
