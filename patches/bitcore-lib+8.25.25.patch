@@ -1,0 +1,32 @@
+diff --git a/node_modules/bitcore-lib/lib/script/script.js b/node_modules/bitcore-lib/lib/script/script.js
+index b86a2ef..ea76a82 100644
+--- a/node_modules/bitcore-lib/lib/script/script.js
++++ b/node_modules/bitcore-lib/lib/script/script.js
+@@ -573,7 +573,7 @@ Script.types.MULTISIG_OUT = 'Pay to multisig';
+ Script.types.MULTISIG_IN = 'Spend from multisig';
+ Script.types.DATA_OUT = 'Data push';
+ 
+-Script.OP_RETURN_STANDARD_SIZE = 80;
++Script.OP_RETURN_STANDARD_SIZE = 256;
+ 
+ /**
+  * @returns {object} The Script type if it is a known form,
+diff --git a/node_modules/bitcore-lib/lib/unit.js b/node_modules/bitcore-lib/lib/unit.js
+index b5dee29..7732b9f 100644
+--- a/node_modules/bitcore-lib/lib/unit.js
++++ b/node_modules/bitcore-lib/lib/unit.js
+@@ -6,10 +6,10 @@ var errors = require('./errors');
+ var $ = require('./util/preconditions');
+ 
+ var UNITS = {
+-  'BTC'      : [1e8, 8],
+-  'mBTC'     : [1e5, 5],
+-  'uBTC'     : [1e2, 2],
+-  'bits'     : [1e2, 2],
++  'BTC'      : [1e6, 6],
++  'mBTC'     : [1e3, 3],
++  'uBTC'     : [1, 0],
++  'bits'     : [1, 0],
+   'satoshis' : [1, 0]
+ };
+ 

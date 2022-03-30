@@ -1,0 +1,12 @@
+{
+  "name": "post",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "patch-package"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
