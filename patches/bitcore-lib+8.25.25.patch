@@ -12,7 +12,7 @@ index b86a2ef..ea76a82 100644
  /**
   * @returns {object} The Script type if it is a known form,
 diff --git a/node_modules/bitcore-lib/lib/transaction/transaction.js b/node_modules/bitcore-lib/lib/transaction/transaction.js
-index ff5ac6c..3095a54 100644
+index ff5ac6c..f78a6e3 100644
 --- a/node_modules/bitcore-lib/lib/transaction/transaction.js
 +++ b/node_modules/bitcore-lib/lib/transaction/transaction.js
 @@ -58,7 +58,7 @@ function Transaction(serialized, opts) {
@@ -33,6 +33,43 @@ index ff5ac6c..3095a54 100644
  
  // Safe upper bound for change address script size in bytes
  Transaction.CHANGE_OUTPUT_MAX_SIZE = 20 + 4 + 34 + 4;
+@@ -1356,36 +1356,6 @@ Transaction.prototype.isCoinbase = function() {
+   return (this.inputs.length === 1 && this.inputs[0].isNull());
+ };
+ 
+-/**
+- * Determines if this transaction can be replaced in the mempool with another
+- * transaction that provides a sufficiently higher fee (RBF).
+- */
+-Transaction.prototype.isRBF = function() {
+-  for (var i = 0; i < this.inputs.length; i++) {
+-    var input = this.inputs[i];
+-    if (input.sequenceNumber < Input.MAXINT - 1) {
+-      return true;
+-    }
+-  }
+-  return false;
+-};
+-
+-/**
+- * Enable this transaction to be replaced in the mempool (RBF) if a transaction
+- * includes a sufficiently higher fee. It will set the sequenceNumber to
+- * DEFAULT_RBF_SEQNUMBER for all inputs if the sequence number does not
+- * already enable RBF.
+- */
+-Transaction.prototype.enableRBF = function() {
+-  for (var i = 0; i < this.inputs.length; i++) {
+-    var input = this.inputs[i];
+-    if (input.sequenceNumber >= Input.MAXINT - 1) {
+-      input.sequenceNumber = Input.DEFAULT_RBF_SEQNUMBER;
+-    }
+-  }
+-  return this;
+-};
+-
+ Transaction.prototype.setVersion = function(version) {
+   $.checkArgument(
+     JSUtil.isNaturalNumber(version) && version <= CURRENT_VERSION,
 diff --git a/node_modules/bitcore-lib/lib/unit.js b/node_modules/bitcore-lib/lib/unit.js
 index b5dee29..7732b9f 100644
 --- a/node_modules/bitcore-lib/lib/unit.js
