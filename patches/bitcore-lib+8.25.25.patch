@@ -11,6 +11,28 @@ index b86a2ef..ea76a82 100644
  
  /**
   * @returns {object} The Script type if it is a known form,
+diff --git a/node_modules/bitcore-lib/lib/transaction/transaction.js b/node_modules/bitcore-lib/lib/transaction/transaction.js
+index ff5ac6c..3095a54 100644
+--- a/node_modules/bitcore-lib/lib/transaction/transaction.js
++++ b/node_modules/bitcore-lib/lib/transaction/transaction.js
+@@ -58,7 +58,7 @@ function Transaction(serialized, opts) {
+     this._newTransaction();
+   }
+ }
+-var CURRENT_VERSION = 2;
++var CURRENT_VERSION = 3;
+ var DEFAULT_NLOCKTIME = 0;
+ var MAX_BLOCK_SIZE = 1000000;
+ 
+@@ -78,7 +78,7 @@ Transaction.NLOCKTIME_BLOCKHEIGHT_LIMIT = 5e8;
+ Transaction.NLOCKTIME_MAX_VALUE = 4294967295;
+ 
+ // Value used for fee estimation (satoshis per kilobyte)
+-Transaction.FEE_PER_KB = 100000;
++Transaction.FEE_PER_KB = 10000;
+ 
+ // Safe upper bound for change address script size in bytes
+ Transaction.CHANGE_OUTPUT_MAX_SIZE = 20 + 4 + 34 + 4;
 diff --git a/node_modules/bitcore-lib/lib/unit.js b/node_modules/bitcore-lib/lib/unit.js
 index b5dee29..7732b9f 100644
 --- a/node_modules/bitcore-lib/lib/unit.js

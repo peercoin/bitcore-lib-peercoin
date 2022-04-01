@@ -40,7 +40,5 @@ bitcore.Networks.defaultNetwork = bitcore.Networks.get('peercoin');
 var transaction = new bitcore.Transaction()
 .from(utxo)
 .to('PUDUhc53JRk3Tb7bDZCWQLXa95UTh6nJVw', 15000)
-.feePerKb(10000) // because kB of data is 0.01 Peercoin
 
-// txn version = 3 does not have transaction timestamp
-transaction.version = 3
+console.log(transaction.toString());
